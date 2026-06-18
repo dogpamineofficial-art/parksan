@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박산 — 길 없는 산에서 길을 만든다</title>
+<meta name="description" content="박산(박광수). 26살에 시작한 스노보드 슬로프스타일 국가대표, 맹지 임야 개발가, 작가, 401MW 데이터센터. 학습 앱 셋.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendard-variable.css" />
+<style>
+  :root{
+    --bg:#EDEBE4;
+    --bg-2:#E6E3DA;
+    --ink:#1A1916;
+    --ink-2:#56534C;
+    --ink-3:#8C887E;
+    --dark:#161512;
+    --on-dark:#EDEBE4;
+    --on-dark-2:rgba(237,235,228,.55);
+    --on-dark-3:rgba(237,235,228,.34);
+    --line:#D4D1C8;
+    --line-d:rgba(237,235,228,.14);
+    --maxw:1180px;
+    --gut:clamp(22px,5.5vw,80px);
+    --f:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:"tnum";}
+  ::selection{background:var(--ink);color:var(--bg)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+  .lab{font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+
+  /* ════════ NAV ════════ */
+  .nav{position:absolute;top:0;left:0;right:0;z-index:10}
+  .nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:clamp(24px,4vh,38px)}
+  .nav-name{font-weight:600;font-size:15px;letter-spacing:-.01em}
+  .nav-name span{color:var(--ink-3);font-weight:400;margin-left:7px}
+  .nav-l{display:flex;gap:clamp(16px,3vw,34px)}
+  .nav-l a{font-size:14px;font-weight:500;color:var(--ink-2);transition:color .2s}
+  .nav-l a:hover{color:var(--ink)}
+  @media(max-width:560px){.nav-l a:not(.nav-cta){display:none}}
+  .nav-cta{color:var(--ink)!important;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
+
+  /* ════════ HERO ════════ */
+  .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:clamp(96px,14vh,150px);padding-bottom:clamp(80px,11vh,120px)}
+  .hero-inner{display:flex;flex-direction:column;justify-content:center;flex:1}
+  .hero-eye{display:flex;align-items:center;gap:14px;margin-bottom:clamp(22px,3.5vh,36px)}
+  .hero-eye .dot{width:7px;height:7px;border-radius:50%;background:var(--ink);display:inline-block;flex:none}
+  h1.htitle{font-weight:760;font-size:clamp(32px,6.4vw,84px);line-height:1.08;letter-spacing:-.03em;margin-bottom:clamp(26px,3.4vh,40px)}
+  .htitle .ln{display:block;overflow:hidden;padding:.06em 0;margin:-.06em 0}
+  .htitle .ln>span{display:block}
+  .hero-eye .lab{letter-spacing:.05em;text-transform:none}
+  .hero-sub{max-width:52ch;font-size:clamp(16px,1.9vw,20px);color:var(--ink-2);line-height:1.55;margin-bottom:clamp(30px,4vh,42px)}
+  .hero-sub b{color:var(--ink);font-weight:600}
+  .hero-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .hbtn{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:600;color:var(--bg);background:var(--ink);border-radius:100px;padding:15px 28px;transition:transform .2s}
+  .hbtn:hover{transform:translateY(-2px)}
+  .hbtn .ar{transition:transform .2s}
+  .hbtn:hover .ar{transform:translateX(3px)}
+  .hlink{font-size:16px;font-weight:500;color:var(--ink-2);border-bottom:1.5px solid var(--ink-3);padding-bottom:2px;transition:color .2s,border-color .2s}
+  .hlink:hover{color:var(--ink);border-color:var(--ink)}
+  .hero-foot{position:absolute;bottom:clamp(26px,4vh,40px);left:0;right:0}
+  .hero-foot-in{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .hf-works{font-size:13px;color:var(--ink-3);letter-spacing:.02em}
+  .hf-scroll{font-size:13px;color:var(--ink-3);display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+  .hf-scroll .ar{display:inline-block;animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  /* ════════ STATEMENT ════════ */
+  .stmt{padding:clamp(80px,13vw,168px) 0;background:var(--bg-2)}
+  .stmt-grid{display:block}
+  @media(max-width:760px){.stmt-grid{grid-template-columns:1fr;gap:34px}}
+  .stmt-lab{margin-bottom:clamp(22px,3.5vw,34px)}
+  .stmt-big{font-weight:640;font-size:clamp(26px,4.2vw,50px);line-height:1.22;letter-spacing:-.025em;max-width:20ch}
+  .stmt-sub{margin-top:28px;font-size:clamp(16px,1.8vw,18px);color:var(--ink-2);max-width:50ch;line-height:1.65}
+
+  /* ════════ WORKS ════════ */
+  .works{padding:clamp(80px,12vw,150px) 0 clamp(30px,5vw,60px)}
+  .works-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:clamp(14px,2.5vw,26px)}
+  .works-head h2{font-weight:720;font-size:clamp(28px,5vw,56px);letter-spacing:-.03em;line-height:1}
+  .wlist{border-top:1px solid var(--ink)}
+  .wrow{display:grid;grid-template-columns:42px 1fr auto;align-items:flex-start;gap:clamp(16px,3vw,44px);padding:clamp(24px,3.5vw,38px) 6px;border-bottom:1px solid var(--line);transition:padding-left .35s cubic-bezier(.2,.7,.3,1),background .35s}
+  .wrow:hover{padding-left:18px;background:rgba(26,25,22,.025)}
+  .w-no{font-size:14px;color:var(--ink-3);font-weight:500;font-variant-numeric:tabular-nums;padding-top:.5em}
+  .w-main{min-width:0}
+  .w-name{font-weight:680;font-size:clamp(22px,3.4vw,40px);letter-spacing:-.025em;line-height:1.08}
+  .w-desc{font-size:clamp(14px,1.5vw,15.5px);color:var(--ink-2);margin-top:8px;max-width:50ch;line-height:1.55}
+  .w-right{display:flex;flex-direction:column;align-items:flex-end;gap:13px;white-space:nowrap;padding-top:.3em}
+  .w-meta{font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--ink-3);text-align:right}
+  .w-meta .free{color:var(--ink);font-weight:600}
+  .w-go{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;color:var(--ink);border:1px solid var(--line);border-radius:100px;padding:9px 18px;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
+  .w-go .a{transition:transform .25s}
+  .wrow:hover .w-go{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .wrow:hover .w-go .a{transform:translate(2px,-2px)}
+  @media(max-width:680px){
+    .wrow{grid-template-columns:30px 1fr;gap:14px;padding-right:0}
+    .w-right{grid-column:2;align-items:flex-start;margin-top:14px}
+    .w-desc{margin-top:6px}
+  }
+
+  /* ════════ ABOUT (dark) ════════ */
+  .about{background:var(--dark);color:var(--on-dark);padding:clamp(84px,13vw,170px) 0}
+  .about .lab{color:var(--on-dark-3)}
+  .ab-lead{font-weight:600;font-size:clamp(26px,4.4vw,52px);line-height:1.22;letter-spacing:-.025em;max-width:18ch;margin:clamp(26px,4vw,44px) 0 clamp(54px,8vw,96px)}
+  .bio{display:flex;flex-direction:column}
+  .bio-row{padding:clamp(24px,3.6vw,38px) 0;border-top:1px solid var(--line-d)}
+  .bio-row:last-child{border-bottom:1px solid var(--line-d)}
+  .bio-lab{font-size:13px;font-weight:600;letter-spacing:.03em;color:var(--on-dark);margin-bottom:14px}
+  .bio-lab small{display:inline-block;font-weight:400;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3);margin-left:12px}
+  .bio-txt{font-size:clamp(16px,1.9vw,19.5px);line-height:1.62;color:var(--on-dark-2);max-width:48ch}
+  .bio-txt b{color:var(--on-dark);font-weight:500}
+  .bio-link{display:inline-flex;align-items:center;gap:7px;margin-top:18px;color:var(--on-dark);font-weight:500;font-size:15px;border:1px solid var(--on-dark-3);border-radius:100px;padding:10px 20px;transition:background .2s,color .2s,border-color .2s}
+  .bio-link .a{transition:transform .2s}
+  .bio-link:hover{background:var(--on-dark);color:var(--dark);border-color:var(--on-dark)}
+  .bio-link:hover .a{transform:translate(2px,-2px)}
+  @media(max-width:620px){.bio-row{grid-template-columns:1fr;gap:10px}}
+
+  /* ════════ FOOTER (dark) ════════ */
+  /* ════════ BOOK ════════ */
+  .book{background:var(--dark);color:var(--on-dark);padding:clamp(80px,12vw,150px) 0;border-top:1px solid var(--line-d)}
+  .book .lab{color:var(--on-dark-3)}
+  .book-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(36px,7vw,90px);align-items:end}
+  @media(max-width:760px){.book-grid{grid-template-columns:1fr;gap:38px;align-items:start}}
+  .book-title{font-weight:680;font-size:clamp(30px,5.2vw,62px);letter-spacing:-.03em;line-height:1.04;margin:clamp(22px,3.5vw,38px) 0 26px}
+  .book-desc{font-size:clamp(16px,1.9vw,19px);color:var(--on-dark-2);max-width:42ch;line-height:1.65}
+  .book-side{display:flex;flex-direction:column;gap:30px}
+  .book-meta{display:flex;flex-direction:column}
+  .book-meta div{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line-d);font-size:15px}
+  .book-meta span{color:var(--on-dark-3)}
+  .book-meta b{color:var(--on-dark);font-weight:500}
+  .book-cta{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;color:var(--on-dark);border:1.5px solid var(--on-dark-2);border-radius:100px;padding:16px 30px;align-self:flex-start;transition:background .2s,color .2s,border-color .2s}
+  .book-cta:hover{background:var(--on-dark);color:var(--dark);border-color:var(--on-dark)}
+  .book-cta .a{transition:transform .2s}
+  .book-cta:hover .a{transform:translate(3px,-3px)}
+
+  footer{background:var(--dark);color:var(--on-dark);padding:clamp(40px,6vw,80px) 0 42px;border-top:1px solid var(--line-d)}
+  .f-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px}
+  .f-name{font-weight:680;font-size:clamp(40px,9vw,104px);letter-spacing:-.035em;line-height:.9}
+  .f-name small{display:block;font-size:14px;font-weight:400;letter-spacing:.04em;color:var(--on-dark-2);margin-top:16px;max-width:30ch;line-height:1.5}
+  .f-links{display:flex;flex-direction:column;gap:12px;text-align:right}
+  .f-links a{font-size:15px;font-weight:500;color:var(--on-dark-2);transition:color .2s}
+  .f-links a:hover{color:var(--on-dark)}
+  .f-base{margin-top:clamp(44px,7vw,72px);padding-top:22px;border-top:1px solid var(--line-d);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;letter-spacing:.04em;color:var(--on-dark-3)}
+  @media(max-width:560px){.f-links{text-align:left}}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+  .rv.in{opacity:1;transform:none}
+  .ld .htitle .ln>span{transform:translateY(108%);animation:up 1s cubic-bezier(.19,.9,.24,1) forwards}
+  .ld .htitle .ln:nth-child(2)>span{animation-delay:.08s}
+  .ld .htitle .ln:nth-child(3)>span{animation-delay:.16s}
+  .ld .hfade{opacity:0;animation:fin .9s ease forwards .5s}
+  @keyframes up{to{transform:translateY(0)}}
+  @keyframes fin{to{opacity:1}}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .rv{opacity:1;transform:none}
+    .ld .htitle .ln>span{transform:none}.ld .hfade{opacity:1}
+    html{scroll-behavior:auto}
+  }
+  :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+</style>
+</head>
+<body class="ld">
+
+<nav class="nav hfade">
+  <div class="wrap">
+    <div class="nav-name">박산</div>
+    <div class="nav-l">
+      <a href="#works">앱 프로젝트</a>
+      <a href="#about">소개</a>
+      <a class="nav-cta" href="https://product.kyobobook.co.kr/detail/S000218086204" target="_blank" rel="noopener">책</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-eye hfade">
+      <span class="dot"></span>
+      <span class="lab">AI 시대, 개인의 경험과 철학이 사업이 되는 방식</span>
+    </div>
+    <h1 class="htitle">
+      <span class="ln"><span>어려운 세계도</span></span>
+      <span class="ln"><span>첫 문을 쉽게 열면</span></span>
+      <span class="ln"><span>길이 크게 열립니다</span></span>
+    </h1>
+    <p class="hero-sub hfade">박산 프로젝트는 사람들이 막히는 첫 지점, 즉 <b>입구의 병목</b>을 찾아 작게 들어가는 길을 만듭니다. 영어, 일본어, 부동산, 반려견 사업, 그리고 AI 인프라의 전력과 부지 문제까지 — <b>하나의 방식</b>으로 연결합니다.</p>
+    <div class="hero-cta hfade">
+      <a class="hbtn" href="#works">앱 보러가기 <span class="ar">→</span></a>
+      <a class="hlink" href="#about">박산 소개</a>
+    </div>
+  </div>
+  <div class="hero-foot hfade">
+    <div class="wrap hero-foot-in">
+      <span class="hf-works">손영어 · 말문일본어 · 보증금·경매</span>
+      <span class="hf-scroll">아래로 <span class="ar">↓</span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ════════ STATEMENT ════════ -->
+<section class="stmt">
+  <div class="wrap stmt-grid">
+    <div class="lab stmt-lab rv">방법</div>
+    <div class="rv">
+      <h2 class="stmt-big">편견과 상식을 깨고, 남들이 못 보는 한 점을 찾아 길을 낸다.</h2>
+      <p class="stmt-sub">스노보드도, 맹지 임야도, 영어앱도, 일본어앱도, 경매앱도, 데이터센터도 — 같은 방법의 다른 적용이다. 분야는 달라도 푸는 방식은 하나다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WORKS ════════ -->
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="works-head rv">
+      <h2>만든 것</h2>
+      <span class="lab">앱 셋</span>
+    </div>
+
+    <div class="wlist">
+      <a class="wrow rv" href="https://english-pgt2.vercel.app" target="_blank" rel="noopener">
+        <span class="w-no">01</span>
+        <div class="w-main">
+          <div class="w-name">손영어</div>
+          <p class="w-desc">be와 do, 두 갈래로 영어가 트인다. 암기 대신 문장 골격을 손으로 익히는 11장.</p>
+        </div>
+        <div class="w-right">
+          <span class="w-meta">영어 학습</span>
+          <span class="w-go">바로가기 <span class="a">↗</span></span>
+        </div>
+      </a>
+
+      <a class="wrow rv" href="https://japaness.vercel.app" target="_blank" rel="noopener">
+        <span class="w-no">02</span>
+        <div class="w-main">
+          <div class="w-name">말문일본어</div>
+          <p class="w-desc">히라가나 카타카나 없이, 한글 발음으로 회화 직행. 동사 꼬리 공식으로 말을 만든다.</p>
+        </div>
+        <div class="w-right">
+          <span class="w-meta">일본어 학습</span>
+          <span class="w-go">바로가기 <span class="a">↗</span></span>
+        </div>
+      </a>
+
+      <a class="wrow rv" href="https://safe-uset.vercel.app" target="_blank" rel="noopener">
+        <span class="w-no">03</span>
+        <div class="w-main">
+          <div class="w-name">보증금·경매</div>
+          <p class="w-desc">내 보증금부터 지키고, 경매 권리분석까지. 안전점수에서 권리분석 퀘스트로.</p>
+        </div>
+        <div class="w-right">
+          <span class="w-meta">부동산 학습</span>
+          <span class="w-go">바로가기 <span class="a">↗</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="lab rv">소개</div>
+    <p class="ab-lead rv">말이 아니라 결과로 증명해왔다.</p>
+
+    <div class="bio">
+      <div class="bio-row rv">
+        <div class="bio-lab">스노보드<small>Athlete</small></div>
+        <p class="bio-txt">26살, 남들보다 한참 늦게 보드에 올랐다. 정해진 교본이 없으니 <b>스스로 요령을 찾아냈고</b>, 끝내 슬로프스타일 국가대표가 됐다.</p>
+      </div>
+      <div class="bio-row rv">
+        <div class="bio-lab">임야 개발<small>Developer</small></div>
+        <p class="bio-txt">아무도 길을 보지 못한 <b>1만 평 이상의 맹지 임야</b>를 맨몸으로 개척했다. 트리하우스를 짓고 펫 마운틴을 세우며, 쓸모없다던 땅에서 가치를 만들어냈다.</p>
+      </div>
+      <div class="bio-row rv">
+        <div class="bio-lab">책<small>2025</small></div>
+        <p class="bio-txt">그 여정을 「길 없는 산에서 100억 가치를 찾다」에 담아 펴냈다. <b>미다스북스</b>, 그동안 걸어온 길의 기록이다.</p>
+      </div>
+      <div class="bio-row rv">
+        <div class="bio-lab">데이터센터<small>MATIN · Now</small></div>
+        <p class="bio-txt">지금은 <b>401MW AI 데이터센터</b>를 originate 중이다. 거대한 사업의 핵심도 결국 한 점 — 전력 계통 연결 구조다.</p>
+        <a class="bio-link" href="https://matinpage.vercel.app" target="_blank" rel="noopener">데이터센터 사이트 보기 <span class="a">↗</span></a>
+      </div>
+      <div class="bio-row rv">
+        <div class="bio-lab">반려견 생태계<small>DOGSIM · 독심</small></div>
+        <p class="bio-txt">임야에서 시작된 반려견 생태계, 독심(DOGSIM)이 다음 산이다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ BOOK ════════ -->
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div class="rv">
+      <div class="lab">책</div>
+      <h2 class="book-title">길 없는 산에서<br>100억 가치를 찾다</h2>
+      <p class="book-desc">맹지 임야에서 DOGSIM 생태계까지, 지금까지 걸어온 모든 길을 담은 실전 기록. 여기까지 둘러보고 더 궁금해졌다면 — 이 책이 이 모든 것의 원본이다.</p>
+    </div>
+    <div class="book-side rv">
+      <div class="book-meta">
+        <div><span>출판</span><b>미다스북스</b></div>
+        <div><span>출간</span><b>2025 · 280쪽</b></div>
+      </div>
+      <a class="book-cta" href="https://product.kyobobook.co.kr/detail/S000218086204" target="_blank" rel="noopener">책 보러가기 <span class="a">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-name">박산<small>박광수 — 길 없는 산에서 길을 만드는 사람.</small></div>
+      <div class="f-links">
+        <a href="https://matinpage.vercel.app" target="_blank" rel="noopener">데이터센터 (MATIN) ↗</a>
+        <a href="https://product.kyobobook.co.kr/detail/S000218086204" target="_blank" rel="noopener">책 구매하기 ↗</a>
+        <a href="#works">앱 보기</a>
+        <a href="#contact" data-edit="email">문의하기</a>
+      </div>
+    </div>
+    <div class="f-base">
+      <span>© 2026 박산 박광수</span>
+      <span>ALL WORKS BY ONE METHOD</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
